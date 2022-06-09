@@ -7,14 +7,17 @@ jobs:
     if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     steps:
-       - run: echo ${{ toJSON(github.event.pull_request.base.ref) }}
-       - run: echo ${{ toJSON(github.event) }}
-#      - uses: actions/github-script@v6
-#        with:
-#          github-token: ${{ secrets.PAT }}
-#          script: |
-#            github.rest.repos.setAdminBranchProtection({
+#      - run: echo ${{ toJSON(github.event.pull_request.base.ref) }}
+#      - run: echo ${{ toJSON(github.event) }}
+      - uses: actions/github-script@v6
+        with:
+          # github-token: ${{ secrets.TOKEN }}
+          script: |
+            console.log(context);
+            
+#            const PR = octokit.rest.pulls.get({
 #              owner: context.repo.owner,
 #              repo: context.repo.repo,
-#              branch: 'main',
+#              pull_number,
 #            });
+
