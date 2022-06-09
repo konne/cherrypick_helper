@@ -7,10 +7,10 @@ jobs:
     if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     steps:
-       - run: echo ${{github.event}}
+       - run: echo ${{fromJSON(github.event)}}
 #      - uses: actions/github-script@v6
 #        with:
-#          github-token: ${{ secrets.KONNE_PAT }}
+#          github-token: ${{ secrets.PAT }}
 #          script: |
 #            github.rest.repos.setAdminBranchProtection({
 #              owner: context.repo.owner,
