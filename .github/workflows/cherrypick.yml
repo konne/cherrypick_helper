@@ -21,6 +21,6 @@ jobs:
               pull_number: context.payload.number
             });
             
-            consoel.log("*******************");
+            console.log("*******************");
             console.log(PR);
 
