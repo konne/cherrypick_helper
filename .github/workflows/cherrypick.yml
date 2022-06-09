@@ -7,25 +7,28 @@ jobs:
     if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     steps:
-#      - run: echo ${{ toJSON(github.event.pull_request.base.ref) }}
-#      - run: echo ${{ toJSON(github.event) }}
       - uses: actions/github-script@v6
         with:
           # github-token: ${{ secrets.TOKEN }}
-          script: |
-            console.log(context);
-            
+          script: |            
+            // get the details for the PR
             const PR = await github.rest.pulls.get({
               owner: context.repo.owner,
               repo: context.repo.repo,
               pull_number: context.payload.number
             });
             
-            console.log("*******************");
-            console.log(PR);
-            const LABELS = PR.data.labels;
-            for (const label of LABELS) {
-              console.log(label);
+            // read all branches 
+            const BRANCHES = await github.rest.repos.listBranches({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+            });
+            console.log(BRANCHES);
+            
+            // search for hotfix branch name
+
+            if (PR.data.labels?.includes('hotfix')) {
+            // hotfix label is active
+            //
             }
-
-
+            
