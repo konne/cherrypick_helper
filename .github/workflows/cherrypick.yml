@@ -23,6 +23,8 @@ jobs:
               owner: context.repo.owner,
               repo: context.repo.repo,
             });
+
+            
             console.log(BRANCHES);
             
             // search for hotfix branch name
@@ -32,3 +34,10 @@ jobs:
             //
             }
             
+            
+  #            data: [
+  #  { name: 'hotfix/v2.5.x', commit: [Object], protected: false },
+  #  { name: 'hotfix/v3.1.x', commit: [Object], protected: false },
+  #  { name: 'konne-patch-4', commit: [Object], protected: false },
+  #  { name: 'main', commit: [Object], protected: false }
+  # ]
