@@ -13,11 +13,14 @@ jobs:
         with:
           # github-token: ${{ secrets.TOKEN }}
           script: |
-            console.log(context);
+            console.log(contex);
             
-#            const PR = octokit.rest.pulls.get({
-#              owner: context.repo.owner,
-#              repo: context.repo.repo,
-#              pull_number,
-#            });
+            const PR = octokit.rest.pulls.get({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: context.payload.number
+            });
+            
+            consoel.log("*******************");
+            console.log(PR);
 
