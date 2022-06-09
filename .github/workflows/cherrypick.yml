@@ -23,4 +23,9 @@ jobs:
             
             console.log("*******************");
             console.log(PR);
+            const LABELS = PR.data.labels;
+            for (const label of LABELS) {
+              console.log(label);
+            }
+
 
